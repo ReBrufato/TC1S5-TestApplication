@@ -33,9 +33,16 @@ public class Tests {
 
     @Test
     @DisplayName("shouldChangeToPagePet")
-    void shouldChangeToPagePet() throws InterruptedException {
+    void shouldChangeToPagePet(){
         IndexPage indexPage = new IndexPage(driver);
         assertThat(indexPage.getPagePet()).isEqualTo("Paws & Care | Pets");
+    }
+
+    @Test
+    @DisplayName("shouldChangeToPageClients")
+    void shouldChangeToPageClients() {
+        IndexPage indexPage = new IndexPage(driver);
+        assertThat(indexPage.getPageClientes()).isEqualTo("Paws & Care | Clientes");
     }
 
 }
