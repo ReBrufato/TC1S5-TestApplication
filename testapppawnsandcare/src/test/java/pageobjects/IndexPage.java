@@ -43,7 +43,7 @@ public class IndexPage {
         return driver.getTitle();
     }
 
-    public Integer addClient(String name, String doc, String email, String tel) throws InterruptedException {
+    public Integer addClient(String name, String doc, String email, String tel){
         driver.get(urlApp);
 
         final WebElement buttonAddClient = new WebDriverWait(driver, Duration.ofSeconds(5))

@@ -45,4 +45,12 @@ public class Tests {
         assertThat(indexPage.getPageClientes()).isEqualTo("Paws & Care | Clientes");
     }
 
+    @Test
+    @DisplayName("shouldReturnOneIfAddClient")
+    void shouldReturnOneIfAddClient(){
+        IndexPage indexPage = new IndexPage(driver);
+        assertThat(indexPage.addClient(faker.name().fullName(), faker.idNumber().toString(),
+                faker.internet().emailAddress(), faker.phoneNumber().toString())).isEqualTo(1);
+    }
+
 }
