@@ -15,10 +15,10 @@ public class IndexPage {
 
     public IndexPage(WebDriver driver){
         this.driver = driver;
-        driver.get(urlApp);
     }
 
-    public String getPagePet() throws InterruptedException {
+    public String getPagePet(){
+        driver.get(urlApp);
         final WebElement linkPet = new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/a[2]")));
 
@@ -27,7 +27,21 @@ public class IndexPage {
         new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.titleIs("Paws & Care | Pets"));
 
-        final String titlePage = driver.getTitle();
-        return titlePage;
+        return driver.getTitle();
     }
+
+    public String getPageClientes(){
+        driver.get(urlApp + "pets");
+
+        final WebElement linkClient = new WebDriverWait(driver, Duration.ofSeconds(5))
+                .until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/a[1]")));
+
+        linkClient.click();
+
+        new WebDriverWait(driver, Duration.ofSeconds(5))
+                .until(ExpectedConditions.titleIs("Paws & Care | Clientes"));
+
+        return driver.getTitle();
+    }
+
 }
