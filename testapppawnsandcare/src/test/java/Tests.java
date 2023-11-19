@@ -1,11 +1,10 @@
 import com.github.javafaker.Faker;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import pageobjects.IndexPage;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class Tests {
@@ -30,6 +29,13 @@ public class Tests {
     void testGetToApp() throws InterruptedException {
         driver.get("http://localhost:3000/");
         Thread.sleep(1500);
+    }
+
+    @Test
+    @DisplayName("shouldChangeToPagePet")
+    void shouldChangeToPagePet() throws InterruptedException {
+        IndexPage indexPage = new IndexPage(driver);
+        assertThat(indexPage.getPagePet()).isEqualTo("Paws & Care | Pets");
     }
 
 }
